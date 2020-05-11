@@ -3,14 +3,6 @@ orbs:
   node: circleci/node@1.1.6
 
 jobs:
-  build-and-test:
-    executor:
-      name: node/default
-    steps:
-      - checkout
-      - setup_remote_docker
-      - run: npm ci
-      - run: npm test
   synth:
     executor:
       name: node/default
@@ -21,9 +13,6 @@ jobs:
       - run: npx cdk synth
 
 workflows:
-  build-and-test:
-    jobs:
-      - build-and-test
   synth:
     jobs:
       - synth
