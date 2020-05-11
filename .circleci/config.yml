@@ -8,6 +8,7 @@ jobs:
       name: node/default
     steps:
       - checkout
+      - setup_remote_docker
       - run: npm ci
       - run: npm test
   synth:
@@ -20,9 +21,9 @@ jobs:
       - run: npx cdk synth
 
 workflows:
-    build-and-test:
-      jobs:
-        - build-and-test
-    synth:
-      jobs:
-        - synth
+  build-and-test:
+    jobs:
+      - build-and-test
+  synth:
+    jobs:
+      - synth
