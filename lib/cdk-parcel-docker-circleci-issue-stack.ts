@@ -8,6 +8,7 @@ export class CdkParcelDockerCircleciIssueStack extends cdk.Stack {
 
     new nodelambda.NodejsFunction(this, "MyNodeLambda", {
       entry: path.join(__dirname, "index.ts"),
+      nodeDockerTag: "12",
     });
   }
 }
